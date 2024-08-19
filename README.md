@@ -8,7 +8,9 @@ We had a team of three to work on the project. **My main responsibility was the 
 Another team member focused on the frontend client side. The third member worked on both the backend and the client,
 and setting up the client device.
 
-![Photo of the finished product](images/timetables-infoscreen.jpg)
+Photo of the finished product                                       | Screenshot with admin panel and another theme
+:------------------------------------------------------------------:|:-----------------------------------------------:
+![Photo of the finished product](images/timetables-infoscreen.jpg)  |  ![Screenshot](images/admin-panel-and-client.png)
 
 ## Portfolio structure
 

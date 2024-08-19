@@ -1,0 +1,28 @@
+{
+  "name": "jubu-aikataulut",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev:server": "(cd server && npm run dev)",
+    "dev:adminPanel": "(cd adminPanel && npm run dev)",
+    "dev:all": "concurrently \"npm run dev:server\" \"npm run build:adminPanel:watch\" \"npm run build:client:watch\"",
+    "init": "node ./server/scripts/init.js",
+    "install:all": "npm install && concurrently \"cd server && npm install\" \"cd client && npm install\" \"cd adminPanel && npm install\"",
+    "build:dev": "concurrently \"cd server && npm run build:dev\" \"cd client && npm run build:dev\" \"cd adminPanel && npm run build:dev\"",
+    "build:prod": "concurrently \"cd server && npm run build\" \"cd client && npm run build\" \"cd adminPanel && npm run build\"",
+    "build:client:watch": "cd client && npm run build:dev -- --watch",
+    "build:adminPanel:watch": "cd adminPanel && npm run build:dev -- --watch",
+    "start:dev": "npm run install:all && npm run build:dev && (cd server && npm run start:dev)",
+    "start:dev:server": "cd server && npm run start:dev",
+    "start:prod": "npm run install:all && npm run build:prod && (cd server && npm run start)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express-session": "^1.18.0",
+    "concurrently": "^8.2.2"
+  }
+}

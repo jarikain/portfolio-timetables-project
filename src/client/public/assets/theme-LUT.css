@@ -1,0 +1,1741 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(../assets/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+/* BACKGROUND.VUE */
+:root {
+  --interval: 10s;
+}
+
+body {
+  background-image: url("../assets/backgroundLUT.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.background {
+  display: none;
+}
+
+/* DATAN ANIMAATIO */
+
+.roll-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+.roll-enter-active,
+.roll-leave-active {
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.roll-enter-from {
+  transform: translateY(100%);
+}
+
+.roll-enter-to {
+  transform: translateY(0);
+}
+
+.roll-leave-from {
+  transform: translateY(0);
+}
+
+.roll-leave-to {
+  transform: translateY(-100%);
+}
+
+/* VIEW VAIHTUMIS ANIMAATIO */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s linear;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+@media (orientation: portrait) {
+  .landscapeDiv {
+    display: none;
+  }
+
+  /* CLOCK */
+
+  #clock {
+    position: absolute;
+    left: 7.5vw;
+    top: 3vh;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6vw;
+    line-height: 4vh;
+
+    display: flex;
+    overflow: hidden;
+    align-content: center;
+    color: #ffffff;
+  }
+
+  #clock > div {
+    display: flex;
+  }
+
+  #clock .digit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #clock .hours {
+    width: 8vw;
+  }
+
+  #clock .minutes {
+    width: 8vw;
+  }
+
+  #clock .seconds {
+    width: 8vw;
+  }
+
+  #clock .tick {
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+  }
+
+  .current {
+    transform: translateY(0);
+  }
+
+  .next {
+    position: absolute;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .move-in {
+    animation: move-in 0.5s forwards;
+  }
+
+  .move-out {
+    animation: move-out 0.5s forwards;
+  }
+
+  @keyframes move-in {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes move-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  /* WEATHER */
+  .weatherContainer {
+    top: -1vh;
+    right: 0;
+    position: absolute;
+  }
+
+  .temperature {
+    position: absolute;
+    top: 1.5vh;
+    width: 18w;
+    right: 17vw;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6vw;
+    line-height: 4vh;
+    color: #ffffff;
+  }
+
+  #oneD {
+    position: absolute;
+    right: 7vw;
+    width: 9vw;
+    top: 3.5vh;
+
+    transform-box: fill-box;
+    animation: spin 15s infinite linear;
+    transform-origin: center center;
+  }
+
+  #oneN {
+    position: absolute;
+    right: 7vw;
+    width: 9vw;
+    top: 3.5vh;
+  }
+
+  #twoD,
+  #twoN {
+    position: absolute;
+    right: 5vw;
+    width: 11vw;
+    top: 4vh;
+  }
+
+  .sun {
+    transform-box: fill-box;
+    animation: spin 15s infinite linear;
+    transform-origin: center center;
+  }
+
+  #threeD,
+  #threeN,
+  #fourD,
+  #fourN {
+    position: absolute;
+    right: 5vw;
+    width: 12vw;
+    top: 4.3vh;
+  }
+
+  #nineD,
+  #nineN,
+  #tenD,
+  #tenN {
+    position: absolute;
+    right: 6vw;
+    width: 10vw;
+    top: 3.5vh;
+  }
+
+  .rainDrop1 {
+    animation: slide-down 2s infinite;
+    animation-delay: 0.5s;
+  }
+
+  .rainDrop2 {
+    animation: slide-down2 2s infinite;
+    animation-delay: 0;
+  }
+
+  .rainDrop3 {
+    animation: slide-down 2s infinite;
+    animation-delay: 1s;
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-30%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-down2 {
+    0% {
+      transform: translateY(-40%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+
+  #elevenD,
+  #elevenN {
+    position: absolute;
+    right: 5vw;
+    width: 11vw;
+    top: 4vh;
+  }
+
+  .lightning {
+    animation: flash 2s infinite;
+  }
+
+  @keyframes flash {
+    0%,
+    20%,
+    40%,
+    100% {
+      opacity: 1;
+    }
+    10%,
+    30% {
+      opacity: 0;
+    }
+  }
+
+  #thirteenD,
+  #thirteenN {
+    position: absolute;
+    right: 8vw;
+    width: 7.5vw;
+    top: 4vh;
+  }
+
+  #fiftyD,
+  #fiftyN {
+    position: relative;
+    right: 7vw;
+    width: 9vw;
+    top: 5vh;
+
+    overflow: visible;
+  }
+
+  .mist1 {
+    overflow: visible;
+    animation: slide-side 3s infinite linear;
+  }
+
+  .mist2 {
+    overflow: visible;
+    animation: slide-side 3s infinite linear;
+    animation-delay: 1s;
+  }
+
+  .mist3 {
+    overflow: visible;
+    animation: slide-side 3s infinite linear;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes slide-side {
+    0% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(10%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  /* TRAIN */
+
+  .trainSvg {
+    overflow: visible;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    bottom: -3.7vh;
+
+    --animation-duration: var(--interval);
+    -webkit-animation: scroll-right var(--animation-duration) linear infinite;
+    -o-animation: scroll-right var(--animation-duration) linear infinite;
+    -moz-animation: scroll-right var(--animation-duration) linear infinite;
+    animation: scroll-right var(--animation-duration) linear infinite;
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-50vw);
+    }
+    100% {
+      transform: translateX(135vw);
+    }
+  }
+  @-o-keyframes scroll-right {
+    0% {
+      -moz-transform: translateX(-50vw);
+    }
+    100% {
+      -moz-transform: translateX(135vw);
+    }
+  }
+  @-moz-keyframes scroll-right {
+    0% {
+      -moz-transform: translateX(-50vw);
+    }
+    100% {
+      -moz-transform: translateX(135vw);
+    }
+  }
+  @-webkit-keyframes scroll-right {
+    0% {
+      -moz-transform: translateX(-50vw);
+    }
+    100% {
+      -moz-transform: translateX(135vw);
+    }
+  }
+
+  .trainStripe {
+    fill: #23b900;
+  }
+
+  .rails {
+    position: absolute;
+    bottom: 0.6vh;
+    width: 150%;
+    height: 2vh;
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: transform 0.3s ease;
+  }
+
+  .slide-enter-from,
+  .slide-leave-to {
+    transform: translateY(100%);
+  }
+
+  /* BUS */
+
+  #busSvg {
+    overflow: visible;
+    position: absolute;
+    height: 50%;
+    width: 40vw;
+    bottom: 0.5vh;
+
+    --animation-duration: var(--interval);
+    -webkit-animation: scroll-left var(--animation-duration) linear infinite;
+    -o-animation: scroll-left var(--animation-duration) linear infinite;
+    -moz-animation: scroll-left var(--animation-duration) linear infinite;
+    animation: scroll-left var(--animation-duration) linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(130vw);
+    }
+    100% {
+      transform: translateX(-10vw);
+    }
+  }
+  @-o-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(130vw);
+    }
+    100% {
+      -moz-transform: translateX(-10vw);
+    }
+  }
+  @-moz-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(130vw);
+    }
+    100% {
+      -moz-transform: translateX(-10vw);
+    }
+  }
+  @-webkit-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(130vw);
+    }
+    100% {
+      -moz-transform: translateX(-10vw);
+    }
+  }
+
+  .busBodyColor {
+    fill: #ed174d;
+  }
+
+  #busBody {
+    animation: MoveUpDown 1s linear infinite;
+  }
+
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-1vh);
+    }
+  }
+
+  .wheel {
+    transform-box: fill-box;
+    animation: spin 1s infinite linear;
+    transform-origin: center center;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  #cloudSmall {
+    -webkit-animation: cloudSmallAnimation 1.5s infinite;
+    -moz-animation: cloudSmallAnimation 1.5s infinite;
+    -o-animation: cloudSmallAnimation 1.5s infinite;
+    animation: cloudSmallAnimation 1.5s infinite;
+  }
+
+  @keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-o-keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  #cloudBig {
+    -webkit-animation: cloudBigAnimation 1.5s infinite;
+    -moz-animation: cloudBigAnimation 1.5s infinite;
+    -o-animation: cloudBigAnimation 1.5s infinite;
+    animation: cloudBigAnimation 1.5s infinite;
+  }
+  @keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-o-keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .bg-container {
+    position: absolute;
+    width: 130vw;
+    height: 16vh;
+    left: -30vw;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  .road {
+    width: 250%;
+    height: 110%;
+    overflow: hidden;
+    position: absolute;
+    left: 24.5vw;
+    bottom: -8.5vh;
+  }
+
+  .upperShape-container {
+    display: none;
+  }
+
+  .lowerShape-container {
+    display: none;
+  }
+
+  /* VIEWS */
+
+  h1 {
+    position: relative;
+    top: 6vh;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 7vw;
+    color: #ffffff;
+  }
+
+  table {
+    border-collapse: collapse;
+    height: 90%;
+    width: 85%;
+    margin: auto;
+  }
+
+  /* BUSES */
+
+  .busId {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+
+    width: 15%;
+  }
+
+  .destinationName {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5vw;
+
+    width: 57%;
+  }
+
+  .departureTime {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+
+    text-align: center;
+    width: 20%;
+  }
+
+  .min {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4vw;
+    color: #ffffff;
+    padding-top: 1%;
+  }
+
+  .busTr {
+    border-bottom: 2px solid;
+    border-color: rgba(255, 255, 255);
+  }
+
+  tr.busTr.last-row {
+    border-bottom: none;
+  }
+
+  .stop1Container {
+    position: absolute;
+    width: 88vw;
+    height: 25vh;
+    left: 6vw;
+    top: 25vh;
+    align-content: center;
+
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  .stop2Container {
+    position: absolute;
+    width: 88vw;
+    height: 25vh;
+    left: 6vw;
+    top: 59vh;
+    align-content: center;
+
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  .stop1 {
+    position: relative;
+    top: 9vh;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6vw;
+    color: #ffffff;
+  }
+
+  .stop2 {
+    position: relative;
+    top: 35vh;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6vw;
+    color: #ffffff;
+  }
+
+  /* TRAINS */
+
+  .trainId {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+  }
+
+  .destinationName {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5vw;
+
+    width: 55%;
+  }
+
+  .departureTimeTrain {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+
+    text-align: center;
+  }
+
+  .cancelledTime {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+    text-decoration: line-through;
+
+    text-align: center;
+  }
+
+  .cancelled .cancelledTime {
+    color: #ffffff;
+  }
+
+  .track {
+    width: 28%;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4vw;
+  }
+
+  .cancelled .track {
+    opacity: 0;
+    border-bottom-left-radius: 10px;
+  }
+
+  .cancelled {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+    background-color: #ed174d;
+  }
+
+  .cancelled .trainId {
+    color: #ffffff;
+    padding-left: 5px;
+    border-top-left-radius: 10px;
+  }
+
+  .cancelled .cancelledTime {
+    padding-right: 25px;
+    border-top-right-radius: 10px;
+  }
+
+  .corner {
+    border-bottom-right-radius: 10px;
+  }
+
+  .delayed {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #ffffff;
+    background-color: #ed174d;
+
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .title {
+    position: relative;
+    top: 9vh;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6vw;
+    color: #ffffff;
+  }
+
+  .container {
+    position: absolute;
+    width: 88vw;
+    height: 59vh;
+    left: 6vw;
+    top: 25vh;
+    align-content: center;
+
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  tr.trainTr.last-row {
+    border-bottom: none;
+  }
+
+  .trainTr:nth-child(4n) {
+    border-bottom: 2px solid;
+    border-color: rgba(255, 255, 255);
+  }
+}
+
+@media (orientation: landscape) {
+  .portraitDiv {
+    display: none;
+  }
+
+  /* CLOCK */
+
+  #clock {
+    position: absolute;
+    left: 6.3vw;
+    top: 5.1vh;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.5vw;
+    line-height: 5vh;
+
+    display: flex;
+    overflow: hidden;
+    align-content: center;
+    color: #ffffff;
+  }
+
+  #clock > div {
+    display: flex;
+  }
+
+  #clock .digit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #clock .hours {
+    width: 4.7vw;
+  }
+
+  #clock .minutes {
+    width: 4.7vw;
+  }
+
+  #clock .tick {
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+  }
+
+  .current {
+    transform: translateY(0);
+  }
+
+  .next {
+    position: absolute;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .move-in {
+    animation: move-in 0.5s forwards;
+  }
+
+  .move-out {
+    animation: move-out 0.5s forwards;
+  }
+
+  @keyframes move-in {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes move-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  /* WEATHER */
+  .weatherContainer {
+    top: -1vh;
+    right: 0;
+    position: absolute;
+  }
+
+  .temperature {
+    position: absolute;
+    top: 1.5vh;
+    width: 18w;
+    right: 12vw;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.5vw;
+    line-height: 4vh;
+    color: #ffffff;
+  }
+
+  #oneD {
+    position: absolute;
+    right: 6vw;
+    width: 5vw;
+    top: 3.5vh;
+
+    transform-box: fill-box;
+    animation: spin 15s infinite linear;
+    transform-origin: center center;
+  }
+
+  #oneN {
+    position: absolute;
+    right: 7vw;
+    width: 4.5vw;
+    top: 4vh;
+  }
+
+  #twoD,
+  #twoN {
+    position: absolute;
+    right: 4.5vw;
+    width: 7vw;
+    top: 4vh;
+  }
+
+  .sun {
+    transform-box: fill-box;
+    animation: spin 15s infinite linear;
+    transform-origin: center center;
+  }
+
+  #threeD,
+  #threeN,
+  #fourD,
+  #fourN {
+    position: absolute;
+    right: 5.5vw;
+    width: 6.5vw;
+    top: 5vh;
+  }
+
+  #nineD,
+  #nineN,
+  #tenD,
+  #tenN {
+    position: absolute;
+    right: 6vw;
+    width: 5.5vw;
+    top: 3.5vh;
+  }
+
+  .rainDrop1 {
+    animation: slide-down 2s infinite;
+    animation-delay: 0.5s;
+  }
+
+  .rainDrop2 {
+    animation: slide-down2 2s infinite;
+    animation-delay: 0;
+  }
+
+  .rainDrop3 {
+    animation: slide-down 2s infinite;
+    animation-delay: 1s;
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-30%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-down2 {
+    0% {
+      transform: translateY(-40%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+
+  #elevenD,
+  #elevenN {
+    position: absolute;
+    right: 6vw;
+    width: 5.5vw;
+    top: 4vh;
+  }
+
+  .lightning {
+    animation: flash 2s infinite;
+  }
+
+  @keyframes flash {
+    0%,
+    20%,
+    40%,
+    100% {
+      opacity: 1;
+    }
+    10%,
+    30% {
+      opacity: 0;
+    }
+  }
+
+  #thirteenD,
+  #thirteenN {
+    position: absolute;
+    right: 7vw;
+    width: 4vw;
+    top: 4vh;
+  }
+
+  #fiftyD,
+  #fiftyN {
+    position: relative;
+    right: 6.5vw;
+    width: 5vw;
+    top: 6vh;
+
+    overflow: visible;
+  }
+
+  .mist1 {
+    overflow: visible;
+    animation: slide-side 3s infinite linear;
+  }
+
+  .mist2 {
+    overflow: visible;
+    animation: slide-side 3s infinite linear;
+    animation-delay: 1s;
+  }
+
+  .mist3 {
+    overflow: visible;
+    animation: slide-side 3s infinite linear;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes slide-side {
+    0% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(10%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  /* TRAIN */
+
+  .trainSvg {
+    overflow: visible;
+    position: absolute;
+    width: 50%;
+    height: 9vh;
+    bottom: 0.9vh;
+
+    --animation-duration: var(--interval);
+    -webkit-animation: scroll-right var(--animation-duration) linear infinite;
+    -o-animation: scroll-right var(--animation-duration) linear infinite;
+    -moz-animation: scroll-right var(--animation-duration) linear infinite;
+    animation: scroll-right var(--animation-duration) linear infinite;
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-35vw);
+    }
+    100% {
+      transform: translateX(135vw);
+    }
+  }
+  @-o-keyframes scroll-right {
+    0% {
+      -moz-transform: translateX(-35vw);
+    }
+    100% {
+      -moz-transform: translateX(135vw);
+    }
+  }
+  @-moz-keyframes scroll-right {
+    0% {
+      -moz-transform: translateX(-35vw);
+    }
+    100% {
+      -moz-transform: translateX(135vw);
+    }
+  }
+  @-webkit-keyframes scroll-right {
+    0% {
+      -moz-transform: translateX(-35vw);
+    }
+    100% {
+      -moz-transform: translateX(135vw);
+    }
+  }
+
+  .trainStripe {
+    fill: #23b900;
+  }
+
+  .rails {
+    position: absolute;
+    bottom: 0.75vh;
+    width: 100%;
+    height: 2.3vh;
+    left: 15vw;
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: transform 0.3s ease;
+  }
+
+  .slide-enter-from,
+  .slide-leave-to {
+    transform: translateY(100%);
+  }
+
+  /* BUS */
+
+  #busSvg {
+    overflow: visible;
+    position: absolute;
+    height: 10vh;
+    width: 40vw;
+    bottom: 0.6vh;
+
+    --animation-duration: var(--interval);
+    -webkit-animation: scroll-left var(--animation-duration) linear infinite;
+    -o-animation: scroll-left var(--animation-duration) linear infinite;
+    -moz-animation: scroll-left var(--animation-duration) linear infinite;
+    animation: scroll-left var(--animation-duration) linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(130vw);
+    }
+    100% {
+      transform: translateX(-10vw);
+    }
+  }
+  @-o-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(130vw);
+    }
+    100% {
+      -moz-transform: translateX(-10vw);
+    }
+  }
+  @-moz-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(130vw);
+    }
+    100% {
+      -moz-transform: translateX(-10vw);
+    }
+  }
+  @-webkit-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(130vw);
+    }
+    100% {
+      -moz-transform: translateX(-10vw);
+    }
+  }
+
+  .busBodyColor {
+    fill: #ed174d;
+  }
+
+  #busBody {
+    animation: MoveUpDown 1s linear infinite;
+  }
+
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-1vh);
+    }
+  }
+
+  .wheel {
+    transform-box: fill-box;
+    animation: spin 1s infinite linear;
+    transform-origin: center center;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  #cloudSmall {
+    -webkit-animation: cloudSmallAnimation 1.5s infinite;
+    -moz-animation: cloudSmallAnimation 1.5s infinite;
+    -o-animation: cloudSmallAnimation 1.5s infinite;
+    animation: cloudSmallAnimation 1.5s infinite;
+  }
+
+  @keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-o-keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes cloudSmallAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  #cloudBig {
+    -webkit-animation: cloudBigAnimation 1.5s infinite;
+    -moz-animation: cloudBigAnimation 1.5s infinite;
+    -o-animation: cloudBigAnimation 1.5s infinite;
+    animation: cloudBigAnimation 1.5s infinite;
+  }
+  @keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-o-keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes cloudBigAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .bg-container {
+    position: absolute;
+    width: 130vw;
+    height: 30vh;
+    left: -30vw;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  .road {
+    position: absolute;
+    left: 24.5vw;
+    width: 110vw;
+    height: 19vh;
+    bottom: -8.5vh;
+    }
+
+  .upperShape-container {
+    display: none;
+  }
+
+  .lowerShape-container {
+    display: none;
+  }
+
+  /* VIEWS */
+
+  h1 {
+    position: relative;
+    top: 2vh;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4vw;
+    color: #ffffff;
+  }
+
+  /* BUSES */
+
+  .busTable {
+    border-collapse: collapse;
+    height: 90%;
+    width: 85%;
+    margin: auto;
+  }
+
+  .busDiv {
+    position: absolute;
+    width: 50%;
+  }
+
+  .busDiv2 {
+    position: absolute;
+    left: 50vw;
+    width: 50%;
+  }
+
+  .stop1 {
+    text-align: center;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+  }
+
+  .stop2 {
+    text-align: center;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+  }
+
+  .stop1Container {
+    position: relative;
+
+    width: 44vw;
+    height: 50vh;
+    top: -3vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  .stop2Container {
+    position: relative;
+    width: 44vw;
+    height: 50vh;
+    top: -3vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  .busId {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+
+    width: 15%;
+  }
+
+  .destinationName {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+
+    width: 57%;
+  }
+
+  .departureTime {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+
+    text-align: center;
+    width: 20%;
+  }
+
+  .min {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    color: #ffffff;
+    padding-top: 1%;
+  }
+
+  .busTr {
+    border-bottom: 2px solid;
+    border-color: rgba(255, 255, 255);
+  }
+
+  tr.busTr.last-row {
+    border-bottom: none;
+  }
+
+  /* TRAINS */
+
+  .trainTable {
+    border-collapse: collapse;
+    height: 90%;
+    width: 95%;
+    margin: auto;
+  }
+
+  .trainId {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+    width: 15%;
+  }
+
+  .destinationNameTrain {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+    width: 40%;
+  }
+
+  .departureTimeTrain {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+
+    text-align: center;
+    width: 12%;
+  }
+
+  .cancelledTime {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+    text-decoration: line-through;
+    text-align: center;
+    width: 12%;
+  }
+
+  .cancelled .cancelledTime {
+    color: #ffffff;
+  }
+
+  .track {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    color: #ffffff;
+
+    padding-left: 1.5%;
+    text-align: end;
+  }
+
+  .cancelled .track {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.5vw;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .cancelled {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+    background-color: #ed174d;
+  }
+
+  .cancelled .trainId {
+    color: #ffffff;
+    padding-left: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .corner {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .delayed {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+    background-color: #ed174d;
+
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .title {
+    position: relative;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vw;
+    color: #ffffff;
+  }
+
+  .container {
+    position: relative;
+    width: 88vw;
+    height: 59vh;
+    left: 6vw;
+    top: -4vh;
+    align-content: center;
+
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  tr.trainTr.last-row {
+    border-bottom: none;
+  }
+
+  .trainTr:nth-child(3n) {
+    border-bottom: 2px solid;
+    border-color: rgba(255, 255, 255);
+  }
+}

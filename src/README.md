@@ -109,6 +109,8 @@ nano adminPanel/.env.production
 ```
 
 ```dotenv
+VITE_API_BASE_URL=
+VITE_BASE_URL=
 ```
 
 Start the service. The script *enables* the system service, so it is started on reboots:
